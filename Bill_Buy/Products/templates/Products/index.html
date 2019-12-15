@@ -1,0 +1,73 @@
+{% load static %}
+
+
+
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{% static 'Products/JaveScript/Script.js' %}"></script>
+
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'Products/CSS/Style.css' %}" rel="stylesheet" />
+
+ 
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to see the goods</noscript>
+    <div id="root">
+      <div class="container">
+        <h1>
+          <img
+            src="https://neal.fun//Spend/billgates.png"
+            class="sc-kgoBCf dzFgpK"
+          />Spend Bill Gates' Money
+        </h1>
+        <div id="fund-total">
+          $1000000 left
+        </div>
+
+
+        {% if ProductList %}
+            {% for i in ProductList %}
+            <div class="products">
+                <div class="product">
+                  <img
+                    src= {{i.link}}
+                    class="product-img"
+                  />
+                  <div class="product-title">{{i.Name}}</div>
+                  <div class="product-price">${{i.Price}}</div>
+                  <div class="" data-key={{i.Name}} data-price={{i.Price}}>
+                    <button class="product-sell">Sell</button
+                    ><input
+                      pattern="\d*"
+                      type="number"
+                      id={{i.Name}}
+                      class="product-input"
+                      value="0"
+                      min="0"
+                    /><button class="product-buy">
+                      Buy
+                    </button>
+                  </div>
+                  <p class="error">Invalid number input</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+
+         
+
+        <div class="shoppingCart">
+          <h2>Your Shopping Spree</h2>
+          <ul>
+            <!-- <li>Big Mac, $2 x 3</li>
+            <li>Big Mac, $2 x 3</li>
+            <li>Big Mac, $2 x 3</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

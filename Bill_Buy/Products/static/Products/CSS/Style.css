@@ -1,0 +1,40 @@
+body {
+    background: lightblue;
+  }
+  h1 {
+    text-align: center;
+  }
+  h1 img {
+    display: block;
+    margin: 10px auto;
+    width: auto;
+  }
+  #fund-total {
+    text-align: center;
+    padding: 30px;
+    background: crimson;
+    color: white;
+    font-size: 2em;
+  }
+  .error {
+    font-size: 80%;
+    color: red;
+    display: none;
+  }
+  .product-input {
+    max-width: 100px;
+    text-align: center;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .product {
+    width: 30%;
+    border: solid thin;
+    text-align: center;
+    background: white;
+    margin: 1%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
