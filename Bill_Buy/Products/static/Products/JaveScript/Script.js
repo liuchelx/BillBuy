@@ -1,5 +1,6 @@
 function handleBuy(total, purchased) {
   $(".product-buy").click(function() {
+    //console.log(total)
     const quantity = $(this)
       .parent()
       .find(".product-input")
@@ -22,7 +23,6 @@ function handleBuy(total, purchased) {
         .parent()
         .attr("data-price");
 
-      const subTotal = price * quantity;
 
       if (purchased[name]) {
         purchased[name]["quantity"] =
@@ -33,10 +33,15 @@ function handleBuy(total, purchased) {
           price: price,
           quantity: quantity
         };
+      
       }
+      subTotal = purchased[name]["price"] * purchased[name]["quantity"];
       //todo: update total
+      console.log(subTotal)
+      console.log(purchased)
+      
       handleTotal(total, -subTotal);
-
+      
       handleShoppingCart(purchased);
     }
   });
@@ -48,7 +53,7 @@ function handleShoppingCart(purchased) {
   } else {
     $(".shoppingCart").show();
     let htmlContent = "";
-    console.log(purchased);
+    //console.log(purchased);
     for (var key in purchased) {
       htmlContent += `<li>${key}, $${purchased[key].price}, ${purchased[key].quantity}</li>`;
     }
@@ -64,9 +69,10 @@ function handleTotal(total, diff = 0) {
 
 $(document).ready(function() {
   let total = 100000;
+  let subTotal = 0;
+  //amount = {'total':100000,'subTotal':0};
   purchased = {};
   handleShoppingCart(purchased);
   handleTotal(total);
-
   handleBuy(total, purchased);
 });
